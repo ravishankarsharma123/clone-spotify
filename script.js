@@ -84,6 +84,30 @@ async function main(){
         }
     });
 
+    // Attach add event listner to play next and previous button
+    next.addEventListener("click", ()=>{
+        let currentSongIndex = songs.indexOf(currentSong.src.split("/songs/")[1])
+        if(currentSongIndex < songs.length-1){
+            playMusic(songs[currentSongIndex+1])
+        }
+        else{
+            playMusic(songs[0])
+        }
+    });
+
+    // Attach add event listner to play next and previous button
+    previous.addEventListener("click", ()=>{
+        let currentSongIndex = songs.indexOf(currentSong.src.split("/songs/")[1])
+        if(currentSongIndex > 0){
+            playMusic(songs[currentSongIndex-1])
+        }
+        else{
+            playMusic(songs[songs.length-1])
+        }
+    }
+    );
+
+
 
     // listen to the time update event
         currentSong.addEventListener("timeupdate", () => {
@@ -104,11 +128,7 @@ async function main(){
         document.querySelector(".circle").style.left = `${(currentTime/duration)*100}%`
     });
 
-    // listen to the  drag song time
-
-    // document.querySelector(".seekbar").addEventListener("click", (e)=>{
-    //     document.querySelector(".circle").style.left = (e.offsetX/e.target.getBounddingClientReact().with)*100 + "%" 
-    // })
+    
     
     
     document.querySelector(".seekbar").addEventListener("click", (e) => {
@@ -127,31 +147,42 @@ async function main(){
 
 
 
-    // for (let index = 0; index < songs.length; index++) {
-    //     const element = songs[index];
-    //     let li = document.createElement("li");
-    //     li.innerHTML = element;
-    //     songUL[0].appendChild(li)
-    // }
-
-
-
-
-    // play the  first song
-    // var audio = new Audio(songs[1]);
-    // audio.play();
-
-
-
-    // song  total durtion
-    // audio.addEventListener("loadeddata", ()=> {
-    //     let duration = audio.duration;
-    //     console.log(duration)
-    // });
-                // real time read duration
-    // audio.addEventListener('timeupdate', () => {
-    //     console.log(audio.duration, audio.currentSrc,`Current Time: ${audio.currentTime.toFixed(2)} seconds`);
-    // });
 }
 
 main()
+
+
+
+
+
+
+
+
+
+
+
+// for (let index = 0; index < songs.length; index++) {
+//     const element = songs[index];
+//     let li = document.createElement("li");
+//     li.innerHTML = element;
+//     songUL[0].appendChild(li)
+// }
+
+
+
+
+// play the  first song
+// var audio = new Audio(songs[1]);
+// audio.play();
+
+
+
+// song  total durtion
+// audio.addEventListener("loadeddata", ()=> {
+//     let duration = audio.duration;
+//     console.log(duration)
+// });
+            // real time read duration
+// audio.addEventListener('timeupdate', () => {
+//     console.log(audio.duration, audio.currentSrc,`Current Time: ${audio.currentTime.toFixed(2)} seconds`);
+// });

@@ -129,7 +129,7 @@ async function main(){
     });
 
     
-    
+
     
     document.querySelector(".seekbar").addEventListener("click", (e) => {
         const seekbar = e.target.getBoundingClientRect();
@@ -141,10 +141,15 @@ async function main(){
     });
 
 
-      
+    // add event listener for hamburger menu
+    document.querySelector(".hamburger").addEventListener("click", ()=>{
+        document.querySelector(".left").style.left = "0"
+    })
 
-
-
+    // add event listener for close button
+    document.querySelector(".close").addEventListener("click", ()=>{
+        document.querySelector(".left").style.left = "-100%"
+    })  
 
 
 }

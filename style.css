@@ -327,6 +327,10 @@ body{
     display: none;
 }
 
+.close{
+    display: none;
+}
+
 @media (max-width: 820px){
     .left{
         transition: all 0.2s;
@@ -334,6 +338,7 @@ body{
         left: -100%;
         z-index: 1;
         width: 233px;
+        background-color: black;
         
 
     }   
@@ -349,10 +354,36 @@ body{
         top: 10px;
         left: 10px;
         cursor: pointer;
+        
     }
     .arrow{
         display: none;
     }
+    .close{
+        display: block;
+        width: 30px;
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        cursor: pointer;
+    }
+    .cardContainer{
+        justify-content: center;
+    }
+  /* Hide scrollbar for all elements */
+* {
+    -ms-overflow-style: none;  /* Internet Explorer 10+ */
+    scrollbar-width: none;  /* Firefox */
+}
+
+*::-webkit-scrollbar {
+    display: none;  /* Safari and Chrome */
 }
 
 
+
+
+}   
+
+
+ 
